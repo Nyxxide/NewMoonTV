@@ -1,0 +1,211 @@
+@keyframes stretch {
+	0% {color: #00189b; 
+	-webkit-transform:scale(0,1); /* Safari and Chrome */
+        -moz-transform:scale(0,1); /* Firefox */
+        -ms-transform:scale(0,1); /* IE 9 */
+        -o-transform:scale(0,1); /* Opera */
+        transform:scale(0,1); /* W3C */}
+	100% {color: white; 
+	-webkit-transform:scale(2,1); /* Safari and Chrome */
+        -moz-transform:scale(2,1); /* Firefox */
+        -ms-transform:scale(2,1); /* IE 9 */
+        -o-transform:scale(2,1); /* Opera */
+        transform:scale(2,1); /* W3C */}
+}
+
+@keyframes fadein{
+	0% {color: #00189b}
+	100% {color: white}
+}
+
+@keyframes fadeinfull{
+        0% {opacity: 0}
+        100% {opacity: 1}
+}
+
+#background {
+	position: absolute;
+	z-index: 0;
+}
+
+#foreground {
+	position: relative;
+	z-index: 1;
+}
+
+#head{
+	background-color: #00189b;
+	border: 0.4em solid white;
+	border-radius: 2em;
+	width: 20vw;
+}
+
+#body{
+	background-color: #00189b;
+	border: 0.4em solid white;
+	border-radius: 2em;
+	width: 25vw;
+}
+
+@media only screen and (max-width: 1200px){
+	#head{
+		font-size: 0.75em;	
+	}
+	
+	#grid {
+        	display: grid;
+        	grid-template-columns: 50% 50% !important;
+        	grid-auto-rows: 1fr;
+        	height: auto;
+        	width: 30vw;
+	}
+
+}
+
+@media only screen and (max-width: 900px){
+        #head{
+		width: 30vw;
+                font-size: 0.75em;
+        }
+
+}
+
+@media only screen and (max-width: 800px){
+	#body{
+		width: 40vw;
+	}
+
+	#grid{
+		width: 40vw !important;
+	}
+}
+
+@media only screen and (max-width: 750px){
+        #head{	
+		width: 35vw;
+                font-size: 0.75em;
+      	}
+}
+
+@media only screen and (max-width: 650px){
+        #head{
+		width: 40vw;
+                font-size: 0.75em;
+        }
+}
+
+@media only screen and (max-width: 570px){
+        #head{
+		width: 45vw;
+                font-size: 0.75em;
+        }
+}
+
+@media only screen and (max-width: 520px){
+        #head{
+		width: 50vw;
+                font-size: 0.75em;
+        }
+}
+
+@media only screen and (max-width: 460px){
+        #head{
+		width: 55vw;
+                font-size: 0.75em;
+        }
+}
+
+#backbody{
+	background-color: black;
+}
+
+#nexus {
+	display: inline-block;
+	color: #00189b;
+	bottom: 2vh;
+	font-size: 4.3em;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	animation: stretch 1.25s 0.6s ease-in forwards;
+}
+
+#title {
+	font-size: 3.15em;
+	margin-bottom: 0;
+	animation: fadein 0.75s ease-in forwards;
+}
+
+#linkdiv{
+        padding: 0.5em;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+}
+
+#grid {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-auto-rows: 1fr;
+        height: auto;
+        width: 25vw;
+}
+
+#testcircle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: red;
+}
+
+a {
+	color: #070032;
+	font-size: 1.3em;
+	opacity: 0;
+	display: inline-block;
+	border: 0.3em solid #070032;
+	border-radius: 1.5em;
+	padding: 0.6em;
+	box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #070032, inset 0.5px 0.5px 0px white, inset -5px -5px 10px #070032;
+	width: 5vw;
+	font-family: "Bebas Neue";
+  	-o-transition:.2s ease-out;
+  	-ms-transition:.2s ease-out;
+  	-moz-transition:.2s ease-out;
+  	-webkit-transition:.2s ease-out;
+  	transition:.2s ease-out;
+	animation: fadeinfull 1s 1.5s ease-in forwards
+}
+
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover {
+  color: white;
+  box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #0b0087, inset 5px 5px 10px #070052, inset -5px -5px 10px #0b0087;
+  border: 0.3em solid white;	
+  text-decoration: none; 
+} 
+a:focus {
+  outline: none;
+}
+a:active { 
+  text-decoration: none; 
+}
+
+h1 {
+        color: white;
+        font-family: "Bebas Neue";
+        font-size: 50px;
+}
+
+/* bebas-neue-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/bebas-neue-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
