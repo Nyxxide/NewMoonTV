@@ -18,7 +18,6 @@ jobs:
           port: ${{ secrets.PORT }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             cd /var/www/html/Nyxxus
             git pull
