@@ -1,26 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+/*
+temporary anim until make better logo
+*/
 @keyframes stretch {
-	0% {color: #00189b; 
-	-webkit-transform:scale(0,1); /* Safari and Chrome */
-        -moz-transform:scale(0,1); /* Firefox */
-        -ms-transform:scale(0,1); /* IE 9 */
-        -o-transform:scale(0,1); /* Opera */
-        transform:scale(0,1); /* W3C */}
-	100% {color: white; 
-	-webkit-transform:scale(2,1); /* Safari and Chrome */
-        -moz-transform:scale(2,1); /* Firefox */
-        -ms-transform:scale(2,1); /* IE 9 */
-        -o-transform:scale(2,1); /* Opera */
-        transform:scale(2,1); /* W3C */}
+	0% {opacity: 0; 
+	/*-webkit-transform:scale(0,1); !* Safari and Chrome *!*/
+    /*    -moz-transform:scale(0,1); !* Firefox *!*/
+    /*    -ms-transform:scale(0,1); !* IE 9 *!*/
+    /*    -o-transform:scale(0,1); !* Opera *!*/
+    /*    transform:scale(0,1); !* W3C *!*/}
+	100% {opacity: 1; 
+	/*-webkit-transform:scale(2,1); !* Safari and Chrome *!*/
+    /*    -moz-transform:scale(2,1); !* Firefox *!*/
+    /*    -ms-transform:scale(2,1); !* IE 9 *!*/
+    /*    -o-transform:scale(2,1); !* Opera *!*/
+    /*    transform:scale(2,1); !* W3C *!*/}
 }
 
 @keyframes fadein{
-	0% {color: #00189b}
-	100% {color: white}
-}
-
-@keyframes fadeinfull{
-        0% {opacity: 0}
-        100% {opacity: 1}
+	0% {opacity: 0}
+	100% {opacity: 1}
 }
 
 #background {
@@ -47,7 +47,7 @@
 	width: 25vw;
 }
 
-@media only screen and (max-width: 1200px){
+/*@media only screen and (max-width: 1200px){
 	#head{
 		font-size: 0.75em;	
 	}
@@ -113,22 +113,57 @@
 		width: 55vw;
                 font-size: 0.75em;
         }
-}
+}*/
 
 #backbody{
 	background-color: black;
 }
 
 #nexus {
+	opacity: 0;
 	display: inline-block;
-	color: #00189b;
+	color: white;
 	bottom: 2vh;
 	font-size: 4.3em;
 	position: relative;
 	margin-top: 0;
 	margin-bottom: 0;
+	-webkit-transform:scale(2,1); /* Safari and Chrome */
+	-moz-transform:scale(2,1); /* Firefox */
+	-ms-transform:scale(2,1); /* IE 9 */
+	-o-transform:scale(2,1); /* Opera */
+	transform:scale(2,1); /* W3C */
 	animation: stretch 1.25s 0.6s ease-in forwards;
 }
+
+#nexus:after{
+	display: inline-block;
+	position: relative;
+	animation: 0.5s 2s glitch;
+	animation-timing-function: steps(2, end);
+}
+#nexus:after {
+	--slice-0: inset(50% 50% 50% 50%);
+	--slice-1: inset(80% -6px 0 0);
+	--slice-2: inset(50% -6px 30% 0);
+	--slice-3: inset(10% -6px 85% 0);
+	--slice-4: inset(40% -6px 43% 0);
+	--slice-5: inset(80% -6px 5% 0);
+
+	content: 'NYXXUS';
+	display: block;
+	position: absolute;
+	background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #00189b 5%);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #000000;
+	border: 0;
+	text-shadow: -3px -3px 0px #ff0042, 3px 3px 0px #00E6F6;
+	clip-path: var(--slice-0);
+}
+
 
 #title {
 	font-size: 3.15em;
@@ -136,8 +171,8 @@
 	animation: fadein 0.75s ease-in forwards;
 }
 
-#linkdiv{
-        padding: 0.5em;
+.linkdiv{
+	padding: 0.5em;
 	padding-top: 0.75em;
 	padding-bottom: 0.75em;
 }
@@ -157,43 +192,157 @@
       background: red;
 }
 
-a {
-	color: #070032;
-	font-size: 1.3em;
-	opacity: 0;
-	display: inline-block;
-	border: 0.3em solid #070032;
-	border-radius: 1.5em;
+/*a {*/
+/*	background-color: #00189b;*/
+/*	color: #070032;*/
+/*	font-size: 1.3em;*/
+/*	opacity: 1;*/
+/*	display: inline-block;*/
+/*	border: 0.3em solid #070032;*/
+/*	border-radius: 1.5em;*/
+/*	padding: 0.6em;*/
+/*	!*box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #070032, inset 0.5px 0.5px 0px white, inset -5px -5px 10px #070032;*!*/
+/*	width: 5vw;*/
+/*	font-family: "Bebas Neue";*/
+/*  	-o-transition:.2s ease-out;*/
+/*  	-ms-transition:.2s ease-out;*/
+/*  	-moz-transition:.2s ease-out;*/
+/*  	-webkit-transition:.2s ease-out;*/
+/*  	transition:.2s ease-out;*/
+/*	!*animation: fadein 1s 1.5s ease-in forwards;*!*/
+/*}*/
+
+/*a:link { */
+/*  text-decoration: none; */
+/*} */
+/*a:visited { */
+/*  text-decoration: none; */
+/*} */
+/*a:hover {*/
+/*  color: cyan;*/
+/*  box-shadow: -5px -5px 15px cyan, 5px 5px 15px cyan;*/
+/*  border: 0.3em solid cyan;*/
+/*  text-decoration: none;*/
+/*} */
+
+
+
+.linkbutton,
+
+.linkbutton:after {
 	padding: 0.6em;
-	box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #070032, inset 0.5px 0.5px 0px white, inset -5px -5px 10px #070032;
 	width: 5vw;
-	font-family: "Bebas Neue";
-  	-o-transition:.2s ease-out;
-  	-ms-transition:.2s ease-out;
-  	-moz-transition:.2s ease-out;
-  	-webkit-transition:.2s ease-out;
-  	transition:.2s ease-out;
-	animation: fadeinfull 1s 1.5s ease-in forwards
+	font-size: 1.4em;
+	font-family: 'Bebas Neue', sans-serif;
+	border: 0.3em solid #fff;
+	border-radius: 1.5em;
+	background: linear-gradient(45deg, transparent 5%, #00189b 5%);
+	color: #fff;
+	outline: transparent;
+	display: inline-block;
+	position: relative;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
 }
 
-a:link { 
-  text-decoration: none; 
-} 
-a:visited { 
-  text-decoration: none; 
-} 
-a:hover {
-  color: white;
-  box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #0b0087, inset 5px 5px 10px #070052, inset -5px -5px 10px #0b0087;
-  border: 0.3em solid white;	
-  text-decoration: none; 
-} 
-a:focus {
-  outline: none;
+.linkbutton:after {
+	--slice-0: inset(50% 50% 50% 50%);
+	--slice-1: inset(80% -6px 0 0);
+	--slice-2: inset(50% -6px 30% 0);
+	--slice-3: inset(10% -6px 85% 0);
+	--slice-4: inset(40% -6px 43% 0);
+	--slice-5: inset(80% -6px 5% 0);
+
+	content: 'ERR0R_404';
+	display: block;
+	position: absolute;
+	background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #00116f 5%);
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #0098F6;
+	border: 0;
+	text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+	clip-path: var(--slice-0);
 }
-a:active { 
-  text-decoration: none; 
+
+.linkbutton:hover {
+	background: linear-gradient(45deg, transparent 5%, #00116F 5%);
+	color: #0098f6;
+	border-color: #0098F6;
 }
+
+.linkbutton:hover:after {
+	display: inline-block;
+	animation: 1s glitch;
+	animation-timing-function: steps(2, end);
+}
+
+.linkbutton:link{
+	text-decoration: none;
+}
+
+.linkbutton:visited{
+	text-decoration: none;
+}
+
+@keyframes glitch {
+	0% {
+		clip-path: var(--slice-1);
+		transform: translate(-20px, -10px);
+	}
+	10% {
+		clip-path: var(--slice-3);
+		transform: translate(10px, 10px);
+	}
+	20% {
+		clip-path: var(--slice-1);
+		transform: translate(-10px, 10px);
+	}
+	30% {
+		clip-path: var(--slice-3);
+		transform: translate(0px, 5px);
+	}
+	40% {
+		clip-path: var(--slice-2);
+		transform: translate(-5px, 0px);
+	}
+	50% {
+		clip-path: var(--slice-3);
+		transform: translate(5px, 0px);
+	}
+	60% {
+		clip-path: var(--slice-4);
+		transform: translate(5px, 10px);
+	}
+	70% {
+		clip-path: var(--slice-2);
+		transform: translate(-10px, 10px);
+	}
+	80% {
+		clip-path: var(--slice-5);
+		transform: translate(20px, -10px);
+	}
+	90% {
+		clip-path: var(--slice-1);
+		transform: translate(-10px, 0px);
+	}
+	100% {
+		clip-path: var(--slice-1);
+		transform: translate(0);
+	}
+}
+
+/*@media (min-width: 768px) {*/
+/*	.linkbutton,*/
+/*	.linkbutton:after {*/
+/*		width: 200px;*/
+/*		height: 86px;*/
+/*		line-height: 88px;*/
+/*	}*/
+/*}*/
 
 h1 {
         color: white;
