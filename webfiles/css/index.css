@@ -85,83 +85,9 @@ temporary anim until make better logo
 	background-color: #00189b;
 	border: 0.4em solid white;
 	border-radius: 2em;
-	width: 20vw;
+	width: calc(20vh*2);
+	height: 20vh;
 }
-
-#body{
-	background-color: #00189b;
-	border: 0.4em solid white;
-	border-radius: 2em;
-	width: 25vw;
-}
-
-/*@media only screen and (max-width: 1200px){
-	#head{
-		font-size: 0.75em;	
-	}
-	
-	#grid {
-        	display: grid;
-        	grid-template-columns: 50% 50% !important;
-        	grid-auto-rows: 1fr;
-        	height: auto;
-        	width: 30vw;
-	}
-
-}
-
-@media only screen and (max-width: 900px){
-        #head{
-		width: 30vw;
-                font-size: 0.75em;
-        }
-
-}
-
-@media only screen and (max-width: 800px){
-	#body{
-		width: 40vw;
-	}
-
-	#grid{
-		width: 40vw !important;
-	}
-}
-
-@media only screen and (max-width: 750px){
-        #head{	
-		width: 35vw;
-                font-size: 0.75em;
-      	}
-}
-
-@media only screen and (max-width: 650px){
-        #head{
-		width: 40vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 570px){
-        #head{
-		width: 45vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 520px){
-        #head{
-		width: 50vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 460px){
-        #head{
-		width: 55vw;
-                font-size: 0.75em;
-        }
-}*/
 
 #backbody{
 	background-color: black;
@@ -227,10 +153,13 @@ temporary anim until make better logo
 
 #grid {
         display: grid;
+		background-color: #00189b;
+		border: 0.4em solid white;
+		border-radius: 2em;
         grid-template-columns: 33% 33% 33%;
         grid-auto-rows: 1fr;
         height: auto;
-        width: 25vw;
+		width: 25vw;
 }
 
 #testcircle {
@@ -239,41 +168,6 @@ temporary anim until make better logo
       border-radius: 50%;
       background: red;
 }
-
-/*a {*/
-/*	background-color: #00189b;*/
-/*	color: #070032;*/
-/*	font-size: 1.3em;*/
-/*	opacity: 1;*/
-/*	display: inline-block;*/
-/*	border: 0.3em solid #070032;*/
-/*	border-radius: 1.5em;*/
-/*	padding: 0.6em;*/
-/*	!*box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #070032, inset 0.5px 0.5px 0px white, inset -5px -5px 10px #070032;*!*/
-/*	width: 5vw;*/
-/*	font-family: "Bebas Neue";*/
-/*  	-o-transition:.2s ease-out;*/
-/*  	-ms-transition:.2s ease-out;*/
-/*  	-moz-transition:.2s ease-out;*/
-/*  	-webkit-transition:.2s ease-out;*/
-/*  	transition:.2s ease-out;*/
-/*	!*animation: fadein 1s 1.5s ease-in forwards;*!*/
-/*}*/
-
-/*a:link { */
-/*  text-decoration: none; */
-/*} */
-/*a:visited { */
-/*  text-decoration: none; */
-/*} */
-/*a:hover {*/
-/*  color: cyan;*/
-/*  box-shadow: -5px -5px 15px cyan, 5px 5px 15px cyan;*/
-/*  border: 0.3em solid cyan;*/
-/*  text-decoration: none;*/
-/*} */
-
-
 
 .linkbutton,
 
