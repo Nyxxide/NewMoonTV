@@ -1,21 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+/*@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);*/
 
-/*
-temporary anim until make better logo
-*/
-@keyframes stretch {
-	0% {opacity: 0; 
-	/*-webkit-transform:scale(0,1); !* Safari and Chrome *!*/
-    /*    -moz-transform:scale(0,1); !* Firefox *!*/
-    /*    -ms-transform:scale(0,1); !* IE 9 *!*/
-    /*    -o-transform:scale(0,1); !* Opera *!*/
-    /*    transform:scale(0,1); !* W3C *!*/}
-	100% {opacity: 1; 
-	/*-webkit-transform:scale(2,1); !* Safari and Chrome *!*/
-    /*    -moz-transform:scale(2,1); !* Firefox *!*/
-    /*    -ms-transform:scale(2,1); !* IE 9 *!*/
-    /*    -o-transform:scale(2,1); !* Opera *!*/
-    /*    transform:scale(2,1); !* W3C *!*/}
+* {
+	font-family: "Bebas Neue";
 }
 
 @keyframes fadein{
@@ -76,6 +62,10 @@ temporary anim until make better logo
 	z-index: 0;
 }
 
+#backbody{
+	background-color: black;
+}
+
 #foreground {
 	position: relative;
 	z-index: 1;
@@ -85,109 +75,49 @@ temporary anim until make better logo
 	background-color: #00189b;
 	border: 0.4em solid white;
 	border-radius: 2em;
-	width: 20vw;
+	width: 20em;
+	margin-top: 60px;
+	padding: 25px;
 }
 
-#body{
+#grid {
+	margin-top: 80px;
+	display: grid;
 	background-color: #00189b;
 	border: 0.4em solid white;
 	border-radius: 2em;
-	width: 25vw;
+	grid-template-columns: 33% 33% 33%;
+	grid-auto-rows: 1fr;
+	height: auto;
+	width: 492px;
 }
 
-/*@media only screen and (max-width: 1200px){
-	#head{
-		font-size: 0.75em;	
-	}
-	
-	#grid {
-        	display: grid;
-        	grid-template-columns: 50% 50% !important;
-        	grid-auto-rows: 1fr;
-        	height: auto;
-        	width: 30vw;
-	}
-
-}
-
-@media only screen and (max-width: 900px){
-        #head{
-		width: 30vw;
-                font-size: 0.75em;
-        }
-
-}
-
-@media only screen and (max-width: 800px){
-	#body{
-		width: 40vw;
-	}
-
-	#grid{
-		width: 40vw !important;
-	}
-}
-
-@media only screen and (max-width: 750px){
-        #head{	
-		width: 35vw;
-                font-size: 0.75em;
-      	}
-}
-
-@media only screen and (max-width: 650px){
-        #head{
-		width: 40vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 570px){
-        #head{
-		width: 45vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 520px){
-        #head{
-		width: 50vw;
-                font-size: 0.75em;
-        }
-}
-
-@media only screen and (max-width: 460px){
-        #head{
-		width: 55vw;
-                font-size: 0.75em;
-        }
-}*/
-
-#backbody{
-	background-color: black;
+#title {
+	color: white;
+	font-size: 3.15em;
+	animation: fadein 0.75s ease-in forwards;
+	margin: 0;
 }
 
 #nexus {
+	margin: 0;
 	opacity: 0;
 	display: inline-block;
 	color: white;
-	bottom: 2vh;
 	font-size: 4.3em;
 	position: relative;
-	margin-top: 0;
-	margin-bottom: 0;
-	-webkit-transform:scale(2,1); /* Safari and Chrome */
-	-moz-transform:scale(2,1); /* Firefox */
-	-ms-transform:scale(2,1); /* IE 9 */
-	-o-transform:scale(2,1); /* Opera */
-	transform:scale(2,1); /* W3C */
-	animation: stretch 1.25s 0.6s ease-in forwards;
+	-webkit-transform:scale(1.9,1); /* Safari and Chrome */
+	-moz-transform:scale(1.9,1); /* Firefox */
+	-ms-transform:scale(1.9,1); /* IE 9 */
+	-o-transform:scale(1.9,1); /* Opera */
+	transform:scale(1.9,1); /* W3C */
+	animation: fadein 1.25s 0.6s ease-in forwards;
 }
 
 #nexus:after{
 	display: inline-block;
 	position: relative;
-	animation: 0.5s 2s glitch;
+	animation: 0.5s 2.0s glitch;
 	animation-timing-function: steps(2, end);
 }
 #nexus:after {
@@ -212,25 +142,10 @@ temporary anim until make better logo
 	clip-path: var(--slice-0);
 }
 
-
-#title {
-	font-size: 3.15em;
-	margin-bottom: 0;
-	animation: fadein 0.75s ease-in forwards;
-}
-
 .linkdiv{
 	padding: 0.5em;
 	padding-top: 0.75em;
 	padding-bottom: 0.75em;
-}
-
-#grid {
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        grid-auto-rows: 1fr;
-        height: auto;
-        width: 25vw;
 }
 
 #testcircle {
@@ -240,46 +155,11 @@ temporary anim until make better logo
       background: red;
 }
 
-/*a {*/
-/*	background-color: #00189b;*/
-/*	color: #070032;*/
-/*	font-size: 1.3em;*/
-/*	opacity: 1;*/
-/*	display: inline-block;*/
-/*	border: 0.3em solid #070032;*/
-/*	border-radius: 1.5em;*/
-/*	padding: 0.6em;*/
-/*	!*box-shadow: -5px -5px 15px #0b0087, 5px 5px 15px #070032, inset 0.5px 0.5px 0px white, inset -5px -5px 10px #070032;*!*/
-/*	width: 5vw;*/
-/*	font-family: "Bebas Neue";*/
-/*  	-o-transition:.2s ease-out;*/
-/*  	-ms-transition:.2s ease-out;*/
-/*  	-moz-transition:.2s ease-out;*/
-/*  	-webkit-transition:.2s ease-out;*/
-/*  	transition:.2s ease-out;*/
-/*	!*animation: fadein 1s 1.5s ease-in forwards;*!*/
-/*}*/
-
-/*a:link { */
-/*  text-decoration: none; */
-/*} */
-/*a:visited { */
-/*  text-decoration: none; */
-/*} */
-/*a:hover {*/
-/*  color: cyan;*/
-/*  box-shadow: -5px -5px 15px cyan, 5px 5px 15px cyan;*/
-/*  border: 0.3em solid cyan;*/
-/*  text-decoration: none;*/
-/*} */
-
-
-
 .linkbutton,
 
 .linkbutton:after {
 	padding: 0.6em;
-	width: 5vw;
+	width: 104px;
 	font-size: 1.4em;
 	font-family: 'Bebas Neue', sans-serif;
 	border: 0.3em solid #fff;
@@ -337,20 +217,117 @@ temporary anim until make better logo
 }
 
 
-/*@media (min-width: 768px) {*/
-/*	.linkbutton,*/
-/*	.linkbutton:after {*/
-/*		width: 200px;*/
-/*		height: 86px;*/
-/*		line-height: 88px;*/
-/*	}*/
-/*}*/
+@media (max-width: 600px) {
+	#head{
+		background-color: #00189b;
+		border: 0.4em solid white;
+		border-radius: 2em;
+		width: 220px;
+		height: 80px;
+		padding: 20px;
+	}
 
-h1 {
-        color: white;
-        font-family: "Bebas Neue";
-        font-size: 50px;
+	#grid {
+		display: grid;
+		background-color: #00189b;
+		border: 0.4em solid white;
+		border-radius: 2em;
+		grid-template-columns: 50% 50%;
+		grid-auto-rows: 1fr;
+		height: auto;
+		width: 328px;
+	}
+
+	#title {
+		color: white;
+		font-size: 2.25em;
+		margin-bottom: 0;
+		animation: fadein 0.75s ease-in forwards;
+	}
+
+	#nexus {
+		opacity: 0;
+		display: inline-block;
+		color: white;
+		bottom: 15px;
+		font-size: 3.2em;
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 0;
+		-webkit-transform:scale(1.9,1); /* Safari and Chrome */
+		-moz-transform:scale(1.9,1); /* Firefox */
+		-ms-transform:scale(1.9,1); /* IE 9 */
+		-o-transform:scale(1.9,1); /* Opera */
+		transform:scale(1.9,1); /* W3C */
+		animation: fadein 1.25s 0.6s ease-in forwards;
+	}
 }
+
+@media (max-width: 360px) {
+	#head{
+		background-color: #00189b;
+		border: 0.2em solid white;
+		border-radius: 2em;
+		width: 150px;
+		height: 60px;
+	}
+
+	#grid {
+		margin-top: 40px;
+		display: grid;
+		background-color: #00189b;
+		border: 0.2em solid white;
+		border-radius: 2em;
+		grid-template-columns: 100%;
+		grid-auto-rows: 1fr;
+		height: auto;
+		width: 160px;
+	}
+
+	#title {
+		color: white;
+		font-size: 1.5em;
+		margin-bottom: 0;
+		animation: fadein 0.75s ease-in forwards;
+	}
+
+	#nexus {
+		opacity: 0;
+		display: inline-block;
+		color: white;
+		bottom: 15px;
+		font-size: 2.0em;
+		position: relative;
+		margin-top: 15px;
+		margin-bottom: 0;
+		-webkit-transform:scale(1.9,1); /* Safari and Chrome */
+		-moz-transform:scale(1.9,1); /* Firefox */
+		-ms-transform:scale(1.9,1); /* IE 9 */
+		-o-transform:scale(1.9,1); /* Opera */
+		transform:scale(1.9,1); /* W3C */
+		animation: fadein 1.25s 0.6s ease-in forwards;
+	}
+
+	.linkbutton{
+		padding: 0.6em;
+		width: 60px;
+		font-size: 0.9em;
+		font-family: 'Bebas Neue', sans-serif;
+		border: 0.2em solid #fff;
+		border-radius: 1.5em;
+		background: linear-gradient(45deg, transparent 5%, #00189b 5%);
+		color: #fff;
+		outline: transparent;
+		display: inline-block;
+		position: relative;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+	}
+}
+
+
+
 
 /* bebas-neue-regular - latin */
 @font-face {
