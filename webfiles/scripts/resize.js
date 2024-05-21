@@ -7,6 +7,5 @@ let linkdiv = document.getElementsByClassName("linkdiv");
 let linkbutton = document.getElementsByClassName("linkbutton");
 
 
-window.addEventListener('resize', function() {
-
-});
+window.onload = function() {
+};
