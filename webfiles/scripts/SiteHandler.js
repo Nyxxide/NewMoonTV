@@ -329,6 +329,9 @@ window.addEventListener("resize", () => {
         if(title.innerText.toLowerCase() !== "welcome to the"){
             title.style.fontSize = "2vw";
         }
+        else{
+            title.style.fontSize = "3vw"
+        }
         buttonbody.style.marginTop = "4.5em";
         imgleft.style.width = "25vw";
         imgright.style.width = "20vw";
@@ -347,6 +350,9 @@ window.addEventListener("resize", () => {
         if(title.innerText.toLowerCase() !== "welcome to the"){
             title.style.fontSize = "28px";
         }
+        else{
+            title.style.fontSize = "42px";
+        }
         buttonbody.style.marginTop = "4.5em";
         imgleft.style.width = "280px";
         imgright.style.width = "210px";
@@ -364,6 +370,9 @@ window.addEventListener("resize", () => {
         }
         if(title.innerText.toLowerCase() !== "welcome to the"){
             title.style.fontSize = "5vw";
+        }
+        else{
+            title.style.fontSize = "8vw";
         }
         imgleft.style.width = "40vw";
         imgright.style.width = "35vw";
