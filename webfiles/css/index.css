@@ -209,6 +209,17 @@ body{
 	cursor: pointer;
 }
 
+#settings {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	right: 2vw;
+	top: 2vh;
+	width: 50px;
+	transition: opacity 1s;
+	/*cursor: pointer;*/
+}
+
 .body-content {
 	opacity: 0;
 	transition: opacity 1s;
