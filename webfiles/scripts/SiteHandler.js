@@ -69,6 +69,8 @@ var alph2egy = {
     "y":"𓋹",
     "z":"𓆏"}
 
+
+
 function backHover() {
     backbutton.src = "/images/ManSelected.png";
 }
@@ -206,7 +208,7 @@ function resetPage() {
         nexus.style.fontSize = "70px";
     }
     else{
-        nexus.style.fontSize = "10vw";
+        nexus.style.fontSize = "12vw";
     }
 
     title.innerText = "Welcome to the";
