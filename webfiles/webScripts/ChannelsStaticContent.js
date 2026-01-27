@@ -6,6 +6,14 @@ import {getRandomInt} from "./CRTVStatic.js";
 
 // *** Variables ***
 
+let randImgsArray = []
+let randImgTmp = [];
+let gitItemsCache = [];
+let gitCacheStamp = null;
+let currentUrl = null;
+let timerId = null;
+
+
 var channelmenu = document.getElementById("channelMenu");
 var headDisplay = document.getElementById("headDisplay");
 var tvbox = document.getElementById("TVBlock");
@@ -21,6 +29,7 @@ var gitRowButtons = document.getElementsByClassName("gitRow");
 var webRowButtons = document.getElementsByClassName("webRow");
 var appRowButtons = document.getElementsByClassName("appRow");
 var sortOpts = document.getElementsByClassName("sortOpt");
+
 
 var headImgs = ["/images/GithubHead.webp", "/images/YT2Head.webp", "/images/BTDFarmHead.webp", "/images/Pharaoh1.webp",
     "/images/Pharaoh2.png"];
@@ -73,6 +82,11 @@ const gradientsSmall = `
     rgba(0, 6, 38, 1) 115%
   ),
 `;
+
+const GIT_JSON_URL = "/webJsonData/GIT_ITEMS.json";
+
+const TRANSPARENT_PIXEL =
+    "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
 
 const TVScreen = (function () {
     const SELECTOR_SCREEN_ELEMENT = ".screen";
@@ -175,9 +189,6 @@ function pickRandom(arr, avoid) {
     return next;
 }
 
-let currentUrl = null;
-let timerId = null;
-
 async function setHeadBackgroundFade(url) {
     if (!url || url === currentUrl) return;
 
@@ -201,20 +212,19 @@ async function setHeadBackgroundFade(url) {
     headDisplay.classList.remove("is-fading");
 }
 
-let randImgsArray = []
-let tmp = [];
+
 
 for(let i = 0; i < 4; i++) {
     let randint = getRandomInt(0, headImgs.length - 1);
-    if(tmp.includes(randint)){
-        while(tmp.includes(randint)){
+    if(randImgTmp.includes(randint)){
+        while(randImgTmp.includes(randint)){
             randint = getRandomInt(0, headImgs.length - 1);
         }
-        tmp.push(randint);
+        randImgTmp.push(randint);
         randImgsArray[i] = headImgs[randint];
     }
     else{
-        tmp.push(randint);
+        randImgTmp.push(randint);
         randImgsArray[i] = headImgs[randint];
     }
 }
@@ -256,18 +266,141 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function clickButton(){
-    for(let i = 0; i < sortOpts.length; i++) {
-        if(sortOpts[i].classList.contains("selectedSort")){
-            sortOpts[i].classList.remove("selectedSort");
-            break;
-        }
+// *** Git Repo Display Functions ***
+
+async function refreshGitItemsIfChanged() {
+    try {
+        const head = await fetch(GIT_JSON_URL, { method: "HEAD", cache: "no-store" });
+        if (!head.ok) throw new Error(`HEAD ${head.status}`);
+
+        const etag = head.headers.get("etag");
+        const lastMod = head.headers.get("last-modified");
+        const stamp = etag || lastMod || null;
+
+        // unchanged -> keep cache
+        if (stamp && gitCacheStamp === stamp && gitItemsCache.length) return false;
+
+        const res = await fetch(GIT_JSON_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error(`GET ${res.status}`);
+
+        const data = await res.json();
+        const items = Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
+
+        gitItemsCache = items
+            .filter(x => x && typeof x === "object")
+            .filter(x => typeof x.url === "string" && x.url.length)
+            .map(x => ({
+                title: x.title ?? "",
+                img: x.img ?? "",
+                url: x.url,
+                lastUpdated: Number(x.lastUpdated) || 0,
+                stars: Number(x.stars) || 0,
+                status: (x.status ?? "").toLowerCase(),
+            }));
+
+        gitCacheStamp = stamp;
+        return true;
+    } catch (err) {
+        console.warn("refreshGitItemsIfChanged failed; using existing cache if any:", err);
+        return false;
     }
-    this.classList.add("selectedSort");
-    console.log(this.innerHTML);
 }
 
+function getSelectedSortIndex() {
+    for (let i = 0; i < sortOpts.length; i++) {
+        if (sortOpts[i].classList.contains("selectedSort")) return i;
+    }
+    return 0;
+}
 
+function sortAndFilterGitItems(items, sortIndex) {
+    let arr = [...items];
+
+    switch (sortIndex) {
+        case 0: // Recently Updated
+            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+            break;
+
+        case 1: // Most Popular
+            arr.sort((a, b) => b.stars - a.stars);
+            break;
+
+        case 2: // Finished ONLY
+            arr = arr.filter(x => x.status === "finished");
+            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+            break;
+
+        case 3: // In Progress ONLY
+            arr = arr.filter(x => x.status === "in_progress");
+            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
+            break;
+    }
+
+    return arr;
+}
+
+function clearGitSlot(imgEl) {
+    // imgEl.removeAttribute("src");          **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
+    // imgEl.style.opacity = "0";             **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
+    // imgEl.style.pointerEvents = "none";    **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
+    imgEl.src = TRANSPARENT_PIXEL;
+    imgEl.style.opacity = "1";
+    imgEl.dataset.url = "";
+    imgEl.alt = "";
+
+}
+
+function fillGitSlot(imgEl, item) {
+    // hide slot if no image path (avoid broken image icon)
+    if (!item.img) {
+        clearGitSlot(imgEl);
+        return;
+    }
+
+    imgEl.src = item.img || TRANSPARENT_PIXEL;
+    imgEl.dataset.url = item.url;
+    imgEl.alt = item.title || "";
+    // imgEl.style.pointerEvents = "auto" || "none";    **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
+    imgEl.style.opacity = "1";
+}
+
+function renderGitRow(sortedItems) {
+    for (let i = 0; i < gitRowButtons.length; i++) {
+        const imgEl = gitRowButtons[i];
+        const item = sortedItems[i];
+
+        if (!item) clearGitSlot(imgEl);
+        else fillGitSlot(imgEl, item);
+    }
+}
+
+// The one function you call from anywhere (load + click):
+async function applyGitSortAndRenderFresh() {
+    await refreshGitItemsIfChanged();
+    const sortIndex = getSelectedSortIndex();
+    const sorted = sortAndFilterGitItems(gitItemsCache, sortIndex);
+    renderGitRow(sorted);
+}
+
+function initGitRowClicks() {
+    for (let i = 0; i < gitRowButtons.length; i++) {
+        const imgEl = gitRowButtons[i];
+        if (imgEl.dataset.gitBound === "1") continue;
+        imgEl.dataset.gitBound = "1";
+
+        imgEl.addEventListener("click", async () => {
+            const url = imgEl.dataset.url;
+            if (!url) return;
+
+            TVScreen.off();
+            channelmenu.style.visibility = "hidden";
+            await sleep(650);
+            TVScreen.on();
+            await sleep(440);
+            window.location.href = url;
+        });
+    }
+}
 
 
 // *** Some Setup ***
@@ -305,7 +438,19 @@ for(let i = 0; i < appRowURLs.length; i++){
     });
 }
 
+function clickButton(){
+    for(let i = 0; i < sortOpts.length; i++) {
+        if(sortOpts[i].classList.contains("selectedSort")){
+            sortOpts[i].classList.remove("selectedSort");
+            break;
+        }
+    }
+    this.classList.add("selectedSort");
+
+    applyGitSortAndRenderFresh()
+}
+
 
 
 export {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
-        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep};
+        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks};

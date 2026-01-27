@@ -1,7 +1,7 @@
 // *** Imports
 
 import {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
-        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep} from "./ChannelsStaticContent.js"
+        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks} from "./ChannelsStaticContent.js"
 
 import {ScreenEffect} from "./CRTVStatic.js";
 
@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     testing.add("snow");
     startHeadRotation(10000);
     sortOpts[0].classList.add("selectedSort");
+
+    initGitRowClicks();
+    await applyGitSortAndRenderFresh();
+
     channelmenu.style.visibility = "visible";
 });
 
