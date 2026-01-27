@@ -2,19 +2,17 @@
 
 
 let floor = document.getElementById("floor");
-let skyline = document.getElementById("skyline");
-let skyglow = document.getElementById("skyglow");
 var screenWidthCheck;
-var numHexes;
+var numTiles;
 
 window.onload = function() {
     if(window.innerWidth>0) {
         screenWidthCheck = Math.floor(window.innerWidth/100);
         if(Math.floor(window.innerHeight/50)>=19){
-            numHexes = Math.floor(window.innerHeight/50);
+            numTiles = Math.floor(window.innerHeight/50);
         }
         else{
-            numHexes = 19;
+            numTiles = 19;
         }
         let centerCol = 10;
         let hcalc = window.innerWidth - 600;
@@ -29,14 +27,11 @@ window.onload = function() {
             //1.14285714286 more columns on left/right of however many are necessary to take up the center
             let col = document.createElement("div");
             col.classList.add(i % 2 === 0 ? "col-even" : "col");
-            for (let ii = 0; ii < (i % 2 === 0 ? numHexes-1 : numHexes); ii++) {
+            for (let ii = 0; ii < (i % 2 === 0 ? numTiles-1 : numTiles); ii++) {
                 let timing = Math.floor(Math.random() * (500 - 1)) + 1;
-                let hex = document.createElement("div");
-                hex.classList.add("hex");
-                setTimeout(function () {
-                    hex.classList.add("vis");
-                }, timing);
-                col.appendChild(hex);
+                let tile = document.createElement("div");
+                tile.classList.add("tile");
+                col.appendChild(tile);
             }
             floor.appendChild(col);
         }
@@ -74,12 +69,6 @@ window.onload = function() {
             // }
         }
         floor.style.transform = `rotateX(${rotateXBy}deg) translateX(${translateXBy}px) translateY(${translateYBy}px) scale(${scaleYBy})`
-        setTimeout(function () {
-            skyline.classList.add("sunglow");
-        }, 0);
-        setTimeout(function () {
-            skyglow.classList.add("bgglow");
-        }, 0);
     }
     else{
         screenWidthCheck = 5;
@@ -89,12 +78,12 @@ window.onload = function() {
 
 window.addEventListener("resize", function(){
     if(window.innerWidth>0){
-        if(Math.floor(window.innerWidth/100)!==screenWidthCheck || Math.floor(window.innerHeight/50)!==numHexes){
+        if(Math.floor(window.innerWidth/100)!==screenWidthCheck || Math.floor(window.innerHeight/50)!==numTiles){
             if(Math.floor(window.innerHeight/50)>=19){
-                numHexes = Math.floor(window.innerHeight/50);
+                numTiles = Math.floor(window.innerHeight/50);
             }
             else{
-                numHexes = 19;
+                numTiles = 19;
             }
             let cols = document.getElementsByClassName("col");
             let colevens = document.getElementsByClassName("col-even");
@@ -118,12 +107,11 @@ window.addEventListener("resize", function(){
             for(let i = 1; i <= totalCols; i++){
                 let col = document.createElement("div");
                 col.classList.add(i % 2 === 0 ? "col-even" : "col");
-                for (let ii = 0; ii < (i % 2 === 0 ? numHexes-1 : numHexes); ii++) {
-                    let timing = Math.floor(Math.random() * (500 - 1)) + 1;
-                    let hex = document.createElement("div");
-                    hex.classList.add("hex");
-                    hex.style.opacity = `1`;
-                    col.appendChild(hex);
+                for (let ii = 0; ii < (i % 2 === 0 ? numTiles-1 : numTiles); ii++) {
+                    let tile = document.createElement("div");
+                    tile.classList.add("tile");
+                    tile.style.opacity = `1`;
+                    col.appendChild(tile);
                 }
                 floor.appendChild(col);
             }

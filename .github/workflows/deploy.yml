@@ -19,5 +19,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            cd /var/www/html/Nyxxus
+            cd /var/www/html/NewMoonTV
             git pull
