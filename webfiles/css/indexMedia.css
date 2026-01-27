@@ -1,0 +1,90 @@
+@media (max-width: 1400px) {
+    #Moon {
+        width: 350px;
+        animation: imgGlitch 5.0s infinite, pulse2 5.0s infinite;
+        transition: transform 3s;
+    }
+
+    .glitch__tear {
+        width: 350px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glitch__tear img {
+        width: 350px;
+        position: relative;
+        z-index: 1;
+        display: block;
+    }
+
+    .glitch__layers {
+        width: 350px;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .glitch__layer {
+        width: 350px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url("/images/Moon.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #Moon {
+        width: 70vw;
+        animation: imgGlitch 5.0s infinite, pulse2 5.0s infinite;
+        transition: transform 3s;
+    }
+
+    .glitch__tear {
+        width: 70vw;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glitch__tear img {
+        width: 70vw;
+        position: relative;
+        z-index: 1;
+        display: block;
+    }
+
+    .glitch__layers {
+        width: 70vw;
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .glitch__layer {
+        width: 70vw;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url("/images/Moon.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+    }
+
+
+
+}

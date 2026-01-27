@@ -1,0 +1,110 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    width: 100%;
+    height:250px;
+    background:#0c0c33;
+    overflow: hidden;
+}
+
+.stars{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height:50%;
+}
+
+.stars span{
+    position:absolute;
+}
+
+.stars span:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+
+
+    transform:scale(0.20);
+}
+
+.stars span.s:before{
+
+
+    box-shadow: 20px 20px #FFFFFF;
+}
+
+.stars span.m:before{
+    box-shadow:
+
+            20px 10px #ff76f4,
+
+            10px 20px #ff76e8,
+            20px 20px #FFFFFF,
+            30px 20px #ff76df,
+
+            20px 30px #ff76e4;
+}
+
+.stars span.l:before{
+    box-shadow:
+
+            20px  0px #fd35e2,
+
+            20px 10px #ff76ed,
+
+            0px 20px #fd35ce,
+            10px 20px #ff76e8,
+            20px 20px #FFFFFF,
+            30px 20px #ff76e4,
+            40px 20px #fd35dc,
+
+            20px 30px #ff76e4,
+
+            20px 40px #fd35ce;
+}
+
+
+.stars span:nth-child(1){left:10%; top:10%; animation: star-anim 8s 0s infinite;}
+.stars span:nth-child(2){left:80%; top:20%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(3){left:60%; top:40%; animation: star-anim 5s 2s infinite;}
+.stars span:nth-child(4){left:20%; top:70%; animation: star-anim 7s 3s infinite;}
+.stars span:nth-child(5){left:80%; top:80%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(6){left:40%; top:10%; animation: star-anim 4s 0s infinite;}
+.stars span:nth-child(7){left:10%; top:50%; animation: star-anim 7s 1s infinite;}
+.stars span:nth-child(8){left:50%; top:50%; animation: star-anim 8s 2s infinite;}
+.stars span:nth-child(9){left:90%; top:90%; animation: star-anim 5s 3s infinite;}
+.stars span:nth-child(10){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(11){left:90%; top:10%; animation: star-anim 5s 0s infinite;}
+.stars span:nth-child(12){left:10%; top:80%; animation: star-anim 6s 1s infinite;}
+.stars span:nth-child(13){left:30%; top:20%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(14){left:60%; top:90%; animation: star-anim 8s 3s infinite;}
+.stars span:nth-child(15){left:80%; top:50%; animation: star-anim 7s 4s infinite;}
+
+.stars span:nth-child(16){left:76%; top:24%; animation: star-anim 6s 0s infinite;}
+.stars span:nth-child(17){left:25%; top:55%; animation: star-anim 5s 1s infinite;}
+.stars span:nth-child(18){left:51%; top:33%; animation: star-anim 7s 2s infinite;}
+.stars span:nth-child(19){left:42%; top:64%; animation: star-anim 5s 3s infinite;}
+.stars span:nth-child(20){left:91%; top:91%; animation: star-anim 6s 4s infinite;}
+
+.stars span:nth-child(21){left:5%; top:9%; animation: star-anim 6s 0s infinite;}
+.stars span:nth-child(22){left:19%; top:33%; animation: star-anim 7s 1s infinite;}
+.stars span:nth-child(23){left:44%; top:72%; animation: star-anim 5s 2s infinite;}
+.stars span:nth-child(24){left:63%; top:85%; animation: star-anim 6s 3s infinite;}
+.stars span:nth-child(25){left:54%; top:27%; animation: star-anim 8s 4s infinite;}
+
+
+@keyframes star-anim {
+    0% {opacity:0;}
+    5% {opacity:1;}
+    10% {opacity:0;}
+    55% {opacity:0;}
+    60% {opacity:1;}
+    95% {opacity:0;}
+    100% {opacity:1;}
+}

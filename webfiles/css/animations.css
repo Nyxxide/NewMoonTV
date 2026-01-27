@@ -1,0 +1,43 @@
+@keyframes imgGlitch {
+    45% {
+        filter: none;
+    }
+    46% {
+        filter: url(#dist-01);
+    }
+    47% {
+        filter: url(#dist-02);
+    }
+    48% {
+        filter: url(#dist-03);
+    }
+    50% {
+        filter: none;
+    }
+    95% {
+        filter: none;
+    }
+    96% {
+        filter:  url(#dist-02);
+    }
+    97% {
+        filter:  url(#dist-04);
+    }
+}
+
+@keyframes moveY {
+    0% {transform: translateY(0)}
+    100% {transform: translateY(110px)}
+}
+
+@keyframes pulse2 {
+    0% {
+        opacity: 0.5;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
