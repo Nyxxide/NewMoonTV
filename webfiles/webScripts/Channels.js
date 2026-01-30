@@ -1,27 +1,11 @@
-// *** Imports
+// *** Imports ***
 
 import {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
         startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks} from "./ChannelsStaticContent.js"
 
 import {ScreenEffect} from "./CRTVStatic.js";
 
-
-
 // *** Logic ***
-
-
-// for(let i = 0; i < gitRowURLs.length; i++){
-//     gitRowButtons[i].addEventListener("click", async () => {
-//         TVScreen.off();
-//         channelmenu.style.visibility = "hidden";
-//         await sleep(650);
-//         TVScreen.on();
-//         await sleep(440);
-//         window.location.href = gitRowURLs[i];
-//     });
-// }
-
-
 
 document.addEventListener("DOMContentLoaded", async () => {
     TVScreen.on();
