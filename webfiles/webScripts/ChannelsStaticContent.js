@@ -20,9 +20,9 @@ var tvbox = document.getElementById("TVBlock");
 var backbutton = document.getElementById("back");
 var settingsbutton = document.getElementById("settings");
 var icon = document.getElementById("favicon");
-var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/"]
+var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://mctag.nyxxusnovum.tv/"]
 var gitRowURLs = ["https://github.com/Nyxxide/BloonsFarm", "", ""]
-var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "", ""]
+var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://mctag.nyxxusnovum.tv/", ""]
 var appRowURLs = ["https://github.com/Nyxxide/BloonsFarm/releases/", "", ""]
 var topRowButtons = document.getElementsByClassName("topRow");
 var gitRowButtons = document.getElementsByClassName("gitRow");
@@ -31,8 +31,7 @@ var appRowButtons = document.getElementsByClassName("appRow");
 var sortOpts = document.getElementsByClassName("sortOpt");
 
 
-var headImgs = ["/images/GithubHead.webp", "/images/YT2Head.webp", "/images/BTDFarmHead.webp", "/images/Pharaoh1.webp",
-    "/images/Pharaoh2.png"];
+var headImgs = ["/images/GithubHead.webp", "/images/YT2Head.webp", "/images/BTDFarmHead.webp", "/images/MCTagHead.webp"];
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var alph2egy = {
