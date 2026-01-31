@@ -1,9 +1,11 @@
 // *** Imports ***
 
-import {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
+import {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, fluid, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
         startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks} from "./ChannelsStaticContent.js"
 
 import {ScreenEffect} from "./CRTVStatic.js";
+
+import {startFluidBG} from "./FluidBG.js";
 
 // *** Logic ***
 
@@ -11,14 +13,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     TVScreen.on();
     await sleep(440);
 
-    const testing = new ScreenEffect("#crtvLayer");
-    testing.add("vignette");
-    testing.add("scanlines");
-    testing.add("vcr");
-    testing.add("snow");
+    const crtv = new ScreenEffect("#crtvLayer");
+    crtv.add("vignette");
+    crtv.add("scanlines");
+    crtv.add("vcr");
+    crtv.add("snow");
+    startFluidBG({
+        baseColor: [0.0, 6/255, 38/255],
+        fluidColor: [0.0, 247/255, 255/255],
+        targetFPS: 30,
+    })
     startHeadRotation(10000);
     sortOpts[0].classList.add("selectedSort");
-
     initGitRowClicks();
     await applyGitSortAndRenderFresh();
 
@@ -44,6 +50,7 @@ window.addEventListener("pageshow", async (e) => {
         // TVScreen.on();
         // await sleep(440);
         channelmenu.style.visibility = "visible";
+        fluid.style.visibility = "visible";
     }
 });
 

@@ -1,6 +1,9 @@
 #banner {
+    background: #000626;
     display: flex;
     height: 25vw;
+    z-index: 2;
+    box-shadow: 0 60px 60px 350px #000626;
 }
 
 #titleSection {
@@ -118,17 +121,35 @@ body{
 #channelMenu {
     position: relative;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
     visibility: hidden;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: #000626;
+    background-color: rgba(0, 6, 38, 0);
     scrollbar-width: auto;
     scrollbar-color: #00f7ff #0068b1;
+    will-change: scroll-position;
 }
 
 #channelMenu::-webkit-scrollbar {
     width: 12px;
+}
+
+#channelMenu > *:not(#fluidBy) {
+    position: relative;
+    z-index: 1;
+}
+
+#fluidBg {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* doesn’t block UI */
+    z-index: 0;
+    display: block;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 #body-content {
@@ -187,7 +208,7 @@ body{
     margin-left: .5vw;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #000626;
+    background-color: rgba(0, 6, 38, 0);
     height: 9vw;
     width: 100vw;
     min-width: 0;
