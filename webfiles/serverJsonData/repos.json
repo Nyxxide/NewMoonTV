@@ -5,5 +5,19 @@
     "img": "/images/GHBloonsRepo.webp",
     "url": "https://github.com/Nyxxide/BloonsFarm",
     "status": "in_progress"
+  },
+  {
+    "id": "ytconvo",
+    "title": "YTConvo",
+    "img": "/images/GHYT2Repo.webp",
+    "url": "https://github.com/Nyxxide/YTConvo",
+    "status": "finished"
+  },
+  {
+    "id": "mcdatatagger",
+    "title": "MCDataTagger",
+    "img": "/images/GHMCTagRepo.webp",
+    "url": "https://github.com/Nyxxide/MCDataTagger",
+    "status": "finished"
   }
 ]
