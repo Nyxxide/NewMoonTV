@@ -19,5 +19,12 @@
     "img": "/images/GHMCTagRepo.webp",
     "url": "https://github.com/Nyxxide/MCDataTagger",
     "status": "finished"
+  },
+  {
+    "id": "newmoontv",
+    "title": "NewMoonTV",
+    "img": "/images/GHNewMoonRepo.webp",
+    "url": "https://github.com/Nyxxide/NewMoonTV",
+    "status": "in_progress"
   }
 ]
