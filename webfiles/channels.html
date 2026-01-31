@@ -27,7 +27,10 @@
   </head>
   <body>
     <section class="screen">
+      <canvas id="fluidBg"></canvas>
+
       <div id="channelMenu">
+
         <div id="banner" align="center">
           <img id="back" src="/images/BackStep1.png">
           <img id="settings" src="/images/Coggers.webp">
@@ -49,93 +52,92 @@
           </div>
         </div>
 
-          <div id="body-content" align="center">
-            </br>
-            <div class="sortContainer marginEliminator">
-              <h1 class="scrollLabel marginEliminator">My Top Selection</h1>
-            </div>
-            <div class="scrollBar" align="center">
-              <div class="linkdiv"><img class="linkbutton topRow" src="/images/GithubImage.webp"></div>
-              <div class="linkdiv"><img class="linkbutton topRow" src="/images/YT2Img.webp"></div>
-              <div class="linkdiv"><img class="linkbutton topRow" src="/images/BTDFarmImg.webp"></div>
-              <div class="linkdiv"><img class="linkbutton topRow" src="/images/MCTagImg.webp"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-              <div class="linkdiv"><img class="linkbutton topRow"></div>
-            </div>
-            <div class="sortContainer">
-              <h1 class="scrollLabel">Github Repos</h1>
-              <div id="sorterDiv">
-                <button class="sortOpt" >Recently Updated</button>
-                <button class="sortOpt" >Most Popular</button>
-                <button class="sortOpt" >Finished</button>
-                <button class="sortOpt" >In Progress</button>
-              </div>
-            </div>
-            <div class="scrollBar" align="center">
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-              <div class="linkdiv"><img class="linkbutton gitRow"></div>
-            </div>
-            <div class="sortContainer">
-              <h1 class="scrollLabel">Websites</h1>
-            </div>
-            <div class="scrollBar" align="center">
-              <div class="linkdiv"><img class="linkbutton webRow" src="/images/YT2Img.webp"></div>
-              <div class="linkdiv"><img class="linkbutton webRow" src="/images/MCTagImg.webp"></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-              <div class="linkdiv"><img class="linkbutton webRow" ></div>
-            </div>
-            <div class="sortContainer">
-              <h1 class="scrollLabel">Apps</h1>
-            </div>
-            <div class="scrollBar" align="center">
-              <div class="linkdiv"><img class="linkbutton appRow" src="/images/BTDFarmImg.webp"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
-              <div class="linkdiv"><img class="linkbutton appRow"></div>
+        <div id="body-content" align="center">
+          </br>
+          <div class="sortContainer marginEliminator">
+            <h1 class="scrollLabel marginEliminator">My Top Selection</h1>
+          </div>
+          <div class="scrollBar" align="center">
+            <div class="linkdiv"><img class="linkbutton topRow" src="/images/GithubImage.webp"></div>
+            <div class="linkdiv"><img class="linkbutton topRow" src="/images/YT2Img.webp"></div>
+            <div class="linkdiv"><img class="linkbutton topRow" src="/images/BTDFarmImg.webp"></div>
+            <div class="linkdiv"><img class="linkbutton topRow" src="/images/MCTagImg.webp"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+            <div class="linkdiv"><img class="linkbutton topRow"></div>
+          </div>
+          <div class="sortContainer">
+            <h1 class="scrollLabel">Github Repos</h1>
+            <div id="sorterDiv">
+              <button class="sortOpt" >Recently Updated</button>
+              <button class="sortOpt" >Most Popular</button>
+              <button class="sortOpt" >Finished</button>
+              <button class="sortOpt" >In Progress</button>
             </div>
           </div>
-
+          <div class="scrollBar" align="center">
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+            <div class="linkdiv"><img class="linkbutton gitRow"></div>
+          </div>
+          <div class="sortContainer">
+            <h1 class="scrollLabel">Websites</h1>
+          </div>
+          <div class="scrollBar" align="center">
+            <div class="linkdiv"><img class="linkbutton webRow" src="/images/YT2Img.webp"></div>
+            <div class="linkdiv"><img class="linkbutton webRow" src="/images/MCTagImg.webp"></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+            <div class="linkdiv"><img class="linkbutton webRow" ></div>
+          </div>
+          <div class="sortContainer">
+            <h1 class="scrollLabel">Apps</h1>
+          </div>
+          <div class="scrollBar" align="center">
+            <div class="linkdiv"><img class="linkbutton appRow" src="/images/BTDFarmImg.webp"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+            <div class="linkdiv"><img class="linkbutton appRow"></div>
+          </div>
+        </div>
       </div>
     </section>
   </body>

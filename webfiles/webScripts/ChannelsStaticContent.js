@@ -20,6 +20,7 @@ var tvbox = document.getElementById("TVBlock");
 var backbutton = document.getElementById("back");
 var settingsbutton = document.getElementById("settings");
 var icon = document.getElementById("favicon");
+var fluid = document.getElementById("fluidBg");
 var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://mctag.nyxxusnovum.tv/"]
 var gitRowURLs = ["https://github.com/Nyxxide/BloonsFarm", "", ""]
 var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://mctag.nyxxusnovum.tv/", ""]
@@ -75,12 +76,6 @@ const gradients = `
   ),
 `;
 
-const gradientsSmall = `
-  linear-gradient(to bottom,
-    rgba(0, 6, 38, 0) 70%,
-    rgba(0, 6, 38, 1) 115%
-  ),
-`;
 
 const GIT_JSON_URL = "/webJsonData/GIT_ITEMS.json";
 
@@ -243,6 +238,7 @@ function startHeadRotation(intervalMs = 10000) {
 async function exitSite() {
     TVScreen.off();
     channelmenu.style.visibility = "hidden";
+    fluid.style.visibility = "hidden"
     await sleep(650);
     window.location.href = "/index.html"
 }
@@ -393,6 +389,7 @@ function initGitRowClicks() {
 
             TVScreen.off();
             channelmenu.style.visibility = "hidden";
+            fluid.style.visibility = "hidden"
             await sleep(650);
             TVScreen.on();
             await sleep(440);
@@ -408,6 +405,7 @@ for(let i = 0; i < topRowURLs.length; i++){
     topRowButtons[i].addEventListener("click", async () => {
         TVScreen.off();
         channelmenu.style.visibility = "hidden";
+        fluid.style.visibility = "hidden"
         await sleep(650);
         TVScreen.on();
         await sleep(440);
@@ -419,6 +417,7 @@ for(let i = 0; i < webRowURLs.length; i++){
     webRowButtons[i].addEventListener("click", async () => {
         TVScreen.off();
         channelmenu.style.visibility = "hidden";
+        fluid.style.visibility = "hidden"
         await sleep(650);
         TVScreen.on();
         await sleep(440);
@@ -430,6 +429,7 @@ for(let i = 0; i < appRowURLs.length; i++){
     appRowButtons[i].addEventListener("click", async () => {
         TVScreen.off();
         channelmenu.style.visibility = "hidden";
+        fluid.style.visibility = "hidden"
         await sleep(650);
         TVScreen.on();
         await sleep(440);
@@ -451,5 +451,5 @@ function clickButton(){
 
 
 
-export {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
+export {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, fluid, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
         startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks};
