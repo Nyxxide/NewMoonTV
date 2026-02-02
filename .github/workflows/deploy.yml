@@ -21,3 +21,5 @@ jobs:
           script: |
             cd /var/www/html/NewMoonTV
             git pull
+            cd ~
+            ./update_git_repos.sh

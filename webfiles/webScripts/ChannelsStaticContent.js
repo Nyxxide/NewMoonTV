@@ -32,7 +32,7 @@ var appRowButtons = document.getElementsByClassName("appRow");
 var sortOpts = document.getElementsByClassName("sortOpt");
 
 
-var headImgs = ["/images/GithubHead.webp", "/images/YT2Head.webp", "/images/BTDFarmHead.webp", "/images/MCTagHead.webp"];
+var headImgs = ["/images/HeadDisplay/Base/GithubHead.webp", "/images/HeadDisplay/Base/YT2Head.webp", "/images/HeadDisplay/Base/BTDFarmHead.webp", "/images/HeadDisplay/Base/MCTagHead.webp"];
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var alph2egy = {
@@ -191,17 +191,10 @@ async function setHeadBackgroundFade(url) {
     headDisplay.classList.add("is-fading");
 
     await new Promise(r => setTimeout(r, 400));
-    console.log(window.innerWidth);
 
-    // if(window.innerWidth>600){
+
     headDisplay.style.backgroundImage = `${gradients} url("${url}")`;
-    // }
-    // else{
-    //     // headDisplay.style.backgroundImage = `${gradientsSmall} url("${url}")`;
-    //     headDisplay.style.backgroundImage = `url("${url}")`;
-    // }
 
-    currentUrl = url;
 
     headDisplay.classList.remove("is-fading");
 }
@@ -240,20 +233,20 @@ async function exitSite() {
     channelmenu.style.visibility = "hidden";
     fluid.style.visibility = "hidden"
     await sleep(650);
-    window.location.href = "/index.html"
+    window.location.href = "/"
 }
 
 async function backAnim(){
-    backbutton.src = "/images/BackStep2.png";
+    backbutton.src = "/images/SiteUI/Base/BackStep2.png";
     await sleep(150);
-    backbutton.src = "/images/BackStep3.png";
+    backbutton.src = "/images/SiteUI/Base/BackStep3.png";
     await sleep(150);
-    backbutton.src = "/images/BackFinal.png";
+    backbutton.src = "/images/SiteUI/Base/BackFinal.png";
     backbutton.style.animation = "imgGlitch 2s infinite";
 }
 
 function undoBackAnim(){
-    backbutton.src = "/images/BackStep1.png";
+    backbutton.src = "/images/SiteUI/Base/BackStep1.png";
     backbutton.style.animation = "none";
 }
 
@@ -399,6 +392,7 @@ function initGitRowClicks() {
 }
 
 
+
 // *** Some Setup ***
 
 for(let i = 0; i < topRowURLs.length; i++){
@@ -450,6 +444,8 @@ function clickButton(){
 }
 
 
+
+// *** Export ***
 
 export {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, fluid, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
         startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks};

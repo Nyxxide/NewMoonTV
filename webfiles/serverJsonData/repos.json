@@ -2,28 +2,28 @@
   {
     "id": "bloonsfarm",
     "title": "BloonsFarm",
-    "img": "/images/GHBloonsRepo.webp",
+    "img": "/images/GHRepo/Base/GHBloonsRepo.webp",
     "url": "https://github.com/Nyxxide/BloonsFarm",
     "status": "in_progress"
   },
   {
     "id": "ytconvo",
     "title": "YTConvo",
-    "img": "/images/GHYT2Repo.webp",
+    "img": "/images/GHRepo/Base/GHYT2Repo.webp",
     "url": "https://github.com/Nyxxide/YTConvo",
     "status": "finished"
   },
   {
     "id": "mcdatatagger",
     "title": "MCDataTagger",
-    "img": "/images/GHMCTagRepo.webp",
+    "img": "/images/GHRepo/Base/GHMCTagRepo.webp",
     "url": "https://github.com/Nyxxide/MCDataTagger",
     "status": "finished"
   },
   {
     "id": "newmoontv",
     "title": "NewMoonTV",
-    "img": "/images/GHNewMoonRepo.webp",
+    "img": "/images/GHRepo/Base/GHNewMoonRepo.webp",
     "url": "https://github.com/Nyxxide/NewMoonTV",
     "status": "in_progress"
   }
