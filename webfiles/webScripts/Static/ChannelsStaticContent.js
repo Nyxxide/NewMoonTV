@@ -13,6 +13,8 @@ let gitCacheStamp = null;
 let currentUrl = null;
 let timerId = null;
 
+let backAnimCtrl;
+
 
 var channelmenu = document.getElementById("channelMenu");
 var headDisplay = document.getElementById("headDisplay");
@@ -237,16 +239,25 @@ async function exitSite() {
 }
 
 async function backAnim(){
-    backbutton.src = "/images/SiteUI/Base/BackStep2.png";
+    backAnimCtrl?.abort();
+    backAnimCtrl = new AbortController();
+    const { signal } = backAnimCtrl;
+
+    backbutton.src = "/images/SiteUI/Base/BackStep2.webp";
     await sleep(150);
-    backbutton.src = "/images/SiteUI/Base/BackStep3.png";
+    if(signal.aborted) return;
+
+    backbutton.src = "/images/SiteUI/Base/BackStep3.webp";
     await sleep(150);
-    backbutton.src = "/images/SiteUI/Base/BackFinal.png";
+    if(signal.aborted) return;
+
+    backbutton.src = "/images/SiteUI/Base/BackFinal.webp";
     backbutton.style.animation = "imgGlitch 2s infinite";
 }
 
 function undoBackAnim(){
-    backbutton.src = "/images/SiteUI/Base/BackStep1.png";
+    backAnimCtrl?.abort();
+    backbutton.src = "/images/SiteUI/Base/BackStep1.webp";
     backbutton.style.animation = "none";
 }
 
