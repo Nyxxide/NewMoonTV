@@ -4,6 +4,7 @@
         flex-direction: column-reverse;
         justify-content: center;
         margin-bottom: 5vh;
+        box-shadow: 0 60px 60px 150px #000626;
     }
 
     #titleSection {
