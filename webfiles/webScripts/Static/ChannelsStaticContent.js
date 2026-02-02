@@ -1,6 +1,6 @@
 // *** Imports ***
 
-import {getRandomInt} from "./CRTVStatic.js";
+import {getRandomInt} from "../Fancy/CRTVStatic.js";
 
 
 
