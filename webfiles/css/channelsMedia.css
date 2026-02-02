@@ -24,8 +24,8 @@
 
         position: relative;
         overflow: hidden;
-        border-bottom-left-radius: 200px;
-        border-bottom-right-radius: 200px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
         width: 80%;
         height: 50vh;
         background-color: var(--bg);
