@@ -1,6 +1,6 @@
 // *** Imports ***
 
-import { homepage, glitchdiv, glitchlayerdiv, glitchlayer1, glitchlayer2, glitchlayer3, TVScreen, sleep, moonHoverStart, moonHoverEnd, enterSite} from "./HomeScreenStaticContent.js";
+import { homepage, glitchdiv, glitchlayerdiv, glitchlayer1, glitchlayer2, glitchlayer3, TVScreen, sleep, moonHoverStart, moonHoverEnd, enterSite} from "../Static/HomeScreenStaticContent.js";
 
 
 

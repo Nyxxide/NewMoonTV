@@ -1,11 +1,11 @@
 // *** Imports ***
 
 import {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, fluid, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
-        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks} from "./ChannelsStaticContent.js"
+        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks} from "../Static/ChannelsStaticContent.js"
 
-import {ScreenEffect} from "./CRTVStatic.js";
+import {ScreenEffect} from "../Fancy/CRTVStatic.js";
 
-import {startFluidBG} from "./FluidBG.js";
+import {startFluidBG} from "../Fancy/FluidBG.js";
 
 
 
