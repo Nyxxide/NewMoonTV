@@ -41,3 +41,12 @@
         opacity: 0.5;
     }
 }
+
+@keyframes shiftingSands {
+    from {
+        background-position: 0 0;
+    }
+    to{
+        background-position: -1024px 1024px;
+    }
+}

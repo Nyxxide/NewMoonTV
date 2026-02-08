@@ -1,0 +1,130 @@
+{
+  "base": {
+    "favicon": {
+      "icon": "/images/SiteUI/Base/NewMoon.ico"
+    },
+    "channelMusic": {
+      "music": "",
+      "playing": "no"
+    },
+    "backButton": {
+      "image": "/images/SiteUI/Base/BackStep1.webp",
+      "step2": "/images/SiteUI/Base/BackStep2.webp",
+      "step3": "/images/SiteUI/Base/BackStep3.webp",
+      "final": "/images/SiteUI/Base/BackFinal.webp"
+    },
+    "settingsButton": {
+      "image": "/images/SiteUI/Base/Coggers.webp"
+    },
+    "NMText": {
+      "textContent": "NewMoon"
+    },
+    "NMLogo": {
+      "image": "/images/SiteUI/Base/Moon.webp"
+    },
+    "TVText": {
+      "textContent": "TV"
+    },
+    "headDisplay": {
+      "images": [
+        "/images/HeadDisplay/Base/GithubHead.webp",
+        "/images/HeadDisplay/Base/YT2Head.webp",
+        "/images/HeadDisplay/Base/BTDFarmHead.webp",
+        "/images/HeadDisplay/Base/MCTagHead.webp"
+      ],
+      "gradients": "linear-gradient(to bottom, rgba(0, 6, 38, 0) 70%, rgba(0, 6, 38, 1) 115%), radial-gradient(circle farthest-corner at 50% 10%, rgba(0, 6, 38, 0) 52%, rgba(0, 6, 38, .35) 70%, rgba(0, 6, 38, 1) 92%, rgba(0, 6, 38, 1) 112%),"
+    },
+    "scrollLabel": {
+      "s1": "My Top Selection",
+      "s2": "Github Repos",
+      "s3": "Websites",
+      "s4": "Apps"
+    },
+    "sortOpts": {
+      "o1": "Recently Updated",
+      "o2": "Most Popular",
+      "o3": "Finished",
+      "o4": "In Progress"
+    },
+    "topRow": {
+      "i1": "/images/LinkImg/Base/GithubImg.webp",
+      "i2": "/images/LinkImg/Base/YT2Img.webp",
+      "i3": "/images/LinkImg/Base/BTDFarmImg.webp",
+      "i4": "/images/LinkImg/Base/MCTagImg.webp"
+    },
+    "webRow": {
+      "i1": "/images/LinkImg/Base/YT2Img.webp",
+      "i2": "/images/LinkImg/Base/MCTagImg.webp"
+    },
+    "appRow": {
+      "i1": "/images/LinkImg/Base/BTDFarmImg.webp"
+    }
+  },
+
+
+
+
+
+  "egypt": {
+    "favicon": {
+      "icon": "/images/SiteUI/Egypt/Eye.ico"
+    },
+    "channelMusic": {
+      "music": "/audio/Egypt/channelMusic.mp3",
+      "playing": "yes"
+    },
+    "backButton": {
+      "image": "/images/SiteUI/Egypt/BackStep1.webp",
+      "step2": "/images/SiteUI/Egypt/BackStep2.webp",
+      "step3": "/images/SiteUI/Egypt/BackStep3.webp",
+      "final": "/images/SiteUI/Egypt/BackFinal.webp"
+    },
+    "settingsButton": {
+      "image": "/images/SiteUI/Egypt/Coggers.webp"
+    },
+    "NMText": {
+      "textContent": "\uD80C\uDDA3\uD80C\uDC76\uD80C\uDC2C\uD80C\uDD88\uD80C\uDD9A\uD80C\uDD9A\uD80C\uDDA3"
+    },
+    "NMLogo": {
+      "image": "/images/SiteUI/Egypt/Pyramid.webp"
+    },
+    "TVText": {
+      "textContent": "\uD80C\uDDA4\uD80C\uDF1B"
+    },
+    "headDisplay": {
+      "images": [
+        "/images/HeadDisplay/Egypt/Pharaoh1Head.webp",
+        "/images/HeadDisplay/Egypt/Pharaoh2Head.webp",
+        "/images/HeadDisplay/Egypt/Pharaoh3Head.webp",
+        "/images/HeadDisplay/Egypt/Pharaoh4Head.webp"
+      ],
+      "gradients": "linear-gradient(to bottom, rgba(248, 200, 112, 0) 70%, rgba(248, 200, 112, 1) 115%), radial-gradient(circle farthest-corner at 50% 10%, rgba(248, 200, 112, 0) 52%, rgba(248, 200, 112, .35) 70%, rgba(248, 200, 112, 1) 92%, rgba(248, 200, 112, 1) 112%),"
+    },
+    "scrollLabel": {
+      "s1": "\uD80C\uDD88\uD80C\uDEF9 \uD80C\uDDA4\uD80C\uDD9A\uD80C\uDF73 \uD80C\uDD53\uD80C\uDC76\uD80C\uDC88\uD80C\uDC76\uD80C\uDCED\uD80C\uDDA4\uD80C\uDDE3\uD80C\uDD9A\uD80C\uDDA3",
+      "s2": "\uD80C\uDDA7\uD80C\uDDE3\uD80C\uDDA4\uD80C\uDE84\uD80C\uDC68\uD80C\uDD0E \uD80C\uDF1D\uD80C\uDC76\uD80C\uDF73\uD80C\uDD9A\uD80C\uDD53",
+      "s3": "\uD80C\uDC2C\uD80C\uDC76\uD80C\uDD0E\uD80C\uDD53\uD80C\uDDE3\uD80C\uDDA4\uD80C\uDC76\uD80C\uDD53",
+      "s4": "\uD80C\uDC5F\uD80C\uDF73\uD80C\uDF73\uD80C\uDD53"
+    },
+    "sortOpts": {
+      "o1": "\uD80C\uDF1D\uD80C\uDC76\uD80C\uDCED\uD80C\uDC76\uD80C\uDD88\uD80C\uDDA4\uD80C\uDC88\uD80C\uDEF9 \uD80C\uDC68\uD80C\uDF73\uD80C\uDD9E\uD80C\uDC5F\uD80C\uDDA4\uD80C\uDC76\uD80C\uDD9E",
+      "o2": "\uD80C\uDD88\uD80C\uDD9A\uD80C\uDD53\uD80C\uDDA4 \uD80C\uDF73\uD80C\uDD9A\uD80C\uDF73\uD80C\uDC68\uD80C\uDC88\uD80C\uDC5F\uD80C\uDF1D",
+      "o3": "\uD80C\uDD5F\uD80C\uDDE3\uD80C\uDDA3\uD80C\uDDE3\uD80C\uDD53\uD80C\uDE84\uD80C\uDC76\uD80C\uDD9E",
+      "o4": "\uD80C\uDDE3\uD80C\uDDA3 \uD80C\uDF73\uD80C\uDF1D\uD80C\uDD9A\uD80C\uDDA7\uD80C\uDF1D\uD80C\uDC76\uD80C\uDD53\uD80C\uDD53"
+    },
+    "topRow": {
+      "i1": "/images/LinkImg/Egypt/GithubImg.webp",
+      "i2": "/images/LinkImg/Egypt/YT2Img.webp",
+      "i3": "/images/LinkImg/Egypt/BTDFarmImg.webp",
+      "i4": "/images/LinkImg/Egypt/MCTagImg.webp"
+    },
+    "webRow": {
+      "i1": "/images/LinkImg/Egypt/YT2Img.webp",
+      "i2": "/images/LinkImg/Egypt/MCTagImg.webp"
+    },
+    "appRow": {
+      "i1": "/images/LinkImg/Egypt/BTDFarmImg.webp"
+    }
+  }
+}
+
