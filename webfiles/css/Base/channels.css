@@ -1,3 +1,11 @@
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #000000;
+    height: 100%;
+    margin: 0;
+}
+
 #banner {
     background: #000626;
     display: flex;
@@ -22,7 +30,7 @@
     width: 90%;
     height: 60%;
     background-color: #002bff;
-    box-shadow: 0 0 25px 10px #000;
+    box-shadow: 0 0 20px 20px #000;
     justify-content: center;
     left: 5%;
     overflow: hidden;
@@ -64,24 +72,12 @@
 }
 
 #headDisplay{
-    /* make sure this matches your site background exactly */
-    --bg: #000626;
-
     position: relative;
     overflow: hidden;
     border-bottom-left-radius: 400px;
     width: 100%;
     height: 25vw;
-    background-color: var(--bg);
-    background-image:
-            linear-gradient(to bottom,
-            rgba(0, 6, 38, 0) 70%,
-            rgba(0, 6, 38, 1) 115%),
-            radial-gradient(circle farthest-corner at 50% 10%,
-            rgba(0, 6, 38, 0) 52%,
-            rgba(0, 6, 38, .35) 70%,
-            rgba(0, 6, 38, 1) 92%,
-            rgba(0, 6, 38, 1) 112%);
+    background-color: #000626;
 
     background-size: 100% 100%, 100% 100%, cover;
     background-position: center, center, center;
@@ -96,15 +92,6 @@
 
 #headDisplay.is-fading {
     opacity: 0;
-}
-
-
-body{
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background-color: #000000;
-    height: 100%;
-    margin: 0;
 }
 
 .screen{
@@ -205,10 +192,9 @@ body{
 }
 
 .scrollBar {
-    margin-left: .5vw;
+    padding-left: .5vw;
     display: flex;
     flex-wrap: nowrap;
-    background-color: rgba(0, 6, 38, 0);
     height: 9vw;
     width: 100vw;
     min-width: 0;

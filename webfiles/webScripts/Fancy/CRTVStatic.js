@@ -81,11 +81,9 @@ class ScreenEffect {
         if ( type === "snow" ) {
             const canvas = document.createElement("canvas");
             const ctx = canvas.getContext("2d");
-            console.log(canvas.width, canvas.height);
             canvas.classList.add(type);
             canvas.width = this.rect.width / 2;
             canvas.height = this.rect.height / 2;
-            console.log(canvas.width, canvas.height);
 
             this.nodes.wrapper2.appendChild(canvas);
 

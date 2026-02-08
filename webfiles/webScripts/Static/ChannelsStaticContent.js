@@ -1,40 +1,44 @@
 // *** Imports ***
 
-import {getRandomInt} from "../Fancy/CRTVStatic.js";
-
+import ThemeManager from "../Fancy/ThemeHandler.js"
+import {ScreenEffect} from "../Fancy/CRTVStatic.js";
+import {startFluidBG} from "../Fancy/FluidBG.js";
+import {initGitRowClicks, applyGitSortAndRenderFresh} from "./ChannelsGitRepoFunctions.js";
+import {resetHeadHistory, rebuildHeadRotationSet, startHeadRotation} from "./ChannelsHeadRotationFunctions.js"
+import {installSequenceTrigger, installAudioUnlock} from "../Fancy/ThemeSpecificLogic.js";
 
 
 // *** Variables ***
 
-let randImgsArray = []
-let randImgTmp = [];
-let gitItemsCache = [];
-let gitCacheStamp = null;
-let currentUrl = null;
-let timerId = null;
-
 let backAnimCtrl;
 
+var icon = document.getElementById("favicon");
+var channelAudio = document.getElementById("channelAudio");
 
-var channelmenu = document.getElementById("channelMenu");
-var headDisplay = document.getElementById("headDisplay");
-var tvbox = document.getElementById("TVBlock");
 var backbutton = document.getElementById("back");
 var settingsbutton = document.getElementById("settings");
-var icon = document.getElementById("favicon");
+
+var banner = document.getElementById("banner");
+var titleSection = document.getElementById("titleSection");
+var tvblock = document.getElementById("TVBlock");
+var NMText = document.getElementById("NMtext");
+var NMLogo = document.getElementById("NMlogo");
+var TVText = document.getElementById("TVtext");
+var headDisplay = document.getElementById("headDisplay");
+
+var channelmenu = document.getElementById("channelMenu");
 var fluid = document.getElementById("fluidBg");
-var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://mctag.nyxxusnovum.tv/"]
-var gitRowURLs = ["https://github.com/Nyxxide/BloonsFarm", "https://github.com/Nyxxide/YTConvo", "https://github.com/Nyxxide/MCDataTagger", "https://github.com/Nyxxide/NewMoonTV"]
-var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://mctag.nyxxusnovum.tv/", ""]
-var appRowURLs = ["https://github.com/Nyxxide/BloonsFarm/releases/", "", ""]
-var topRowButtons = document.getElementsByClassName("topRow");
-var gitRowButtons = document.getElementsByClassName("gitRow");
-var webRowButtons = document.getElementsByClassName("webRow");
-var appRowButtons = document.getElementsByClassName("appRow");
+var scrollLabels = document.getElementsByClassName("scrollLabel");
+var scrollBars = document.getElementsByClassName("scrollBar");
 var sortOpts = document.getElementsByClassName("sortOpt");
 
 
-var headImgs = ["/images/HeadDisplay/Base/GithubHead.webp", "/images/HeadDisplay/Base/YT2Head.webp", "/images/HeadDisplay/Base/BTDFarmHead.webp", "/images/HeadDisplay/Base/MCTagHead.webp"];
+var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://mctag.nyxxusnovum.tv/"]
+var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://mctag.nyxxusnovum.tv/", ""]
+var appRowURLs = ["https://github.com/Nyxxide/BloonsFarm/releases/", "", ""]
+var topRowButtons = document.getElementsByClassName("topRow");
+var webRowButtons = document.getElementsByClassName("webRow");
+var appRowButtons = document.getElementsByClassName("appRow");
 
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var alph2egy = {
@@ -65,24 +69,6 @@ var alph2egy = {
     "y":"𓋹",
     "z":"𓆏"}
 
-const gradients = `
-  linear-gradient(to bottom,
-    rgba(0, 6, 38, 0) 70%,
-    rgba(0, 6, 38, 1) 115%
-  ),
-  radial-gradient(circle farthest-corner at 50% 10%,
-    rgba(0, 6, 38, 0) 52%,
-    rgba(0, 6, 38, .35) 70%,
-    rgba(0, 6, 38, 1) 92%,
-    rgba(0, 6, 38, 1) 112%
-  ),
-`;
-
-
-const GIT_JSON_URL = "/webJsonData/GIT_ITEMS.json";
-
-const TRANSPARENT_PIXEL =
-    "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
 
 const TVScreen = (function () {
     const SELECTOR_SCREEN_ELEMENT = ".screen";
@@ -166,68 +152,16 @@ const TVScreen = (function () {
 
 // *** Functions ***
 
-function preload(url) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(url);
-        img.onerror = reject;
-        img.src = url;
-    });
-}
-
-function pickRandom(arr, avoid) {
-    if (!arr.length) return null;
-    if (arr.length === 1) return arr[0];
-    let next;
-    do {
-        next = arr[Math.floor(Math.random() * arr.length)];
-    } while (next === avoid);
-    return next;
-}
-
-async function setHeadBackgroundFade(url) {
-    if (!url || url === currentUrl) return;
-
-    try { await preload(url); } catch (e) { console.warn("Image failed:", url, e); return; }
-
-    headDisplay.classList.add("is-fading");
-
-    await new Promise(r => setTimeout(r, 400));
-
-
-    headDisplay.style.backgroundImage = `${gradients} url("${url}")`;
-
-
-    headDisplay.classList.remove("is-fading");
-}
-
-
-
-for(let i = 0; i < 4; i++) {
-    let randint = getRandomInt(0, headImgs.length - 1);
-    if(randImgTmp.includes(randint)){
-        while(randImgTmp.includes(randint)){
-            randint = getRandomInt(0, headImgs.length - 1);
+function clickButton(){
+    for(let i = 0; i < sortOpts.length; i++) {
+        if(sortOpts[i].classList.contains("selectedSort")){
+            sortOpts[i].classList.remove("selectedSort");
+            break;
         }
-        randImgTmp.push(randint);
-        randImgsArray[i] = headImgs[randint];
     }
-    else{
-        randImgTmp.push(randint);
-        randImgsArray[i] = headImgs[randint];
-    }
-}
+    this.classList.add("selectedSort");
 
-function startHeadRotation(intervalMs = 10000) {
-    // set initial immediately
-    const first = pickRandom(randImgsArray, currentUrl);
-    if (first) setHeadBackgroundFade(first);
-
-    // rotate
-    timerId = setInterval(() => {
-        const next = pickRandom(randImgsArray, currentUrl);
-        if (next) setHeadBackgroundFade(next);
-    }, intervalMs);
+    applyGitSortAndRenderFresh()
 }
 
 async function exitSite() {
@@ -243,21 +177,21 @@ async function backAnim(){
     backAnimCtrl = new AbortController();
     const { signal } = backAnimCtrl;
 
-    backbutton.src = "/images/SiteUI/Base/BackStep2.webp";
+    backbutton.src = ThemeManager.get("backButton.step2");
     await sleep(150);
     if(signal.aborted) return;
 
-    backbutton.src = "/images/SiteUI/Base/BackStep3.webp";
+    backbutton.src = ThemeManager.get("backButton.step3");
     await sleep(150);
     if(signal.aborted) return;
 
-    backbutton.src = "/images/SiteUI/Base/BackFinal.webp";
+    backbutton.src = ThemeManager.get("backButton.final");
     backbutton.style.animation = "imgGlitch 2s infinite";
 }
 
 function undoBackAnim(){
     backAnimCtrl?.abort();
-    backbutton.src = "/images/SiteUI/Base/BackStep1.webp";
+    backbutton.src = ThemeManager.get("backButton.image");
     backbutton.style.animation = "none";
 }
 
@@ -265,141 +199,134 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// *** Git Repo Display Functions ***
+function themeSwap() {
+    // Favicon
+    icon.href = ThemeManager.get("favicon.icon")
 
-async function refreshGitItemsIfChanged() {
-    try {
-        const head = await fetch(GIT_JSON_URL, { method: "HEAD", cache: "no-store" });
-        if (!head.ok) throw new Error(`HEAD ${head.status}`);
-
-        const etag = head.headers.get("etag");
-        const lastMod = head.headers.get("last-modified");
-        const stamp = etag || lastMod || null;
-
-        // unchanged -> keep cache
-        if (stamp && gitCacheStamp === stamp && gitItemsCache.length) return false;
-
-        const res = await fetch(GIT_JSON_URL, { cache: "no-store" });
-        if (!res.ok) throw new Error(`GET ${res.status}`);
-
-        const data = await res.json();
-        const items = Array.isArray(data) ? data : (Array.isArray(data.items) ? data.items : []);
-
-        gitItemsCache = items
-            .filter(x => x && typeof x === "object")
-            .filter(x => typeof x.url === "string" && x.url.length)
-            .map(x => ({
-                title: x.title ?? "",
-                img: x.img ?? "",
-                url: x.url,
-                lastUpdated: Number(x.lastUpdated) || 0,
-                stars: Number(x.stars) || 0,
-                status: (x.status ?? "").toLowerCase(),
-            }));
-
-        gitCacheStamp = stamp;
-        return true;
-    } catch (err) {
-        console.warn("refreshGitItemsIfChanged failed; using existing cache if any:", err);
-        return false;
+    // Audio
+    channelAudio.src = ThemeManager.get("channelMusic.music");
+    if(ThemeManager.get("channelMusic.playing")==="yes"){
+        channelAudio.currentTime = 0;
+        channelAudio.play();
+        channelAudio.loop = true;
     }
-}
+    const theme = ThemeManager.getThemeName();
+    console.log(theme);
 
-function getSelectedSortIndex() {
-    for (let i = 0; i < sortOpts.length; i++) {
-        if (sortOpts[i].classList.contains("selectedSort")) return i;
-    }
-    return 0;
-}
+    // CSS Theme Swap
+    document.documentElement.classList.remove("theme-base", "theme-egypt");
+    document.documentElement.classList.add(`theme-${theme}`);
 
-function sortAndFilterGitItems(items, sortIndex) {
-    let arr = [...items];
+    // NMText Change
+    NMText.innerText = ThemeManager.get("NMText.textContent");
 
-    switch (sortIndex) {
-        case 0: // Recently Updated
-            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
-            break;
+    // NMLogo Change
+    NMLogo.src = ThemeManager.get("NMLogo.image");
 
-        case 1: // Most Popular
-            arr.sort((a, b) => b.stars - a.stars);
-            break;
+    // TVText Change
+    TVText.innerText = ThemeManager.get("TVText.textContent");
 
-        case 2: // Finished ONLY
-            arr = arr.filter(x => x.status === "finished");
-            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
-            break;
+    // BackButton Change
+    backbutton.src = ThemeManager.get("backButton.image");
 
-        case 3: // In Progress ONLY
-            arr = arr.filter(x => x.status === "in_progress");
-            arr.sort((a, b) => b.lastUpdated - a.lastUpdated);
-            break;
+    // Settings Change
+    settingsbutton.src = ThemeManager.get("settingsButton.image");
+
+    // ScrollLabel Change
+    for(let i = 0; i < scrollLabels.length; i++){
+        scrollLabels[i].textContent = ThemeManager.get(`scrollLabel.s${i+1}`);
     }
 
-    return arr;
-}
-
-function clearGitSlot(imgEl) {
-    // imgEl.removeAttribute("src");          **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
-    // imgEl.style.opacity = "0";             **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
-    // imgEl.style.pointerEvents = "none";    **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
-    imgEl.src = TRANSPARENT_PIXEL;
-    imgEl.style.opacity = "1";
-    imgEl.dataset.url = "";
-    imgEl.alt = "";
-
-}
-
-function fillGitSlot(imgEl, item) {
-    // hide slot if no image path (avoid broken image icon)
-    if (!item.img) {
-        clearGitSlot(imgEl);
-        return;
+    // SortOpts Changes
+    for(let i = 0; i < sortOpts.length; i++){
+        sortOpts[i].textContent = ThemeManager.get(`sortOpts.o${i+1}`);
     }
 
-    imgEl.src = item.img || TRANSPARENT_PIXEL;
-    imgEl.dataset.url = item.url;
-    imgEl.alt = item.title || "";
-    // imgEl.style.pointerEvents = "auto" || "none";    **INCASE I WANT THEM ALL TO BE INVISIBLE AGAIN
-    imgEl.style.opacity = "1";
-}
-
-function renderGitRow(sortedItems) {
-    for (let i = 0; i < gitRowButtons.length; i++) {
-        const imgEl = gitRowButtons[i];
-        const item = sortedItems[i];
-
-        if (!item) clearGitSlot(imgEl);
-        else fillGitSlot(imgEl, item);
+    // TopRow Changes
+    for(let i = 0; i < topRowButtons.length; i++){
+        if(ThemeManager.get(`topRow.i${i+1}`)!==null){
+            topRowButtons[i].src = ThemeManager.get(`topRow.i${i+1}`);
+        }
     }
-}
 
-// The one function you call from anywhere (load + click):
-async function applyGitSortAndRenderFresh() {
-    await refreshGitItemsIfChanged();
-    const sortIndex = getSelectedSortIndex();
-    const sorted = sortAndFilterGitItems(gitItemsCache, sortIndex);
-    renderGitRow(sorted);
-}
-
-function initGitRowClicks() {
-    for (let i = 0; i < gitRowButtons.length; i++) {
-        const imgEl = gitRowButtons[i];
-        if (imgEl.dataset.gitBound === "1") continue;
-        imgEl.dataset.gitBound = "1";
-
-        imgEl.addEventListener("click", async () => {
-            const url = imgEl.dataset.url;
-            if (!url) return;
-
-            TVScreen.off();
-            channelmenu.style.visibility = "hidden";
-            fluid.style.visibility = "hidden"
-            await sleep(650);
-            TVScreen.on();
-            await sleep(440);
-            window.location.href = url;
-        });
+    // TopRow Changes
+    for(let i = 0; i < webRowButtons.length; i++){
+        if(ThemeManager.get(`webRow.i${i+1}`)!==null){
+            webRowButtons[i].src = ThemeManager.get(`webRow.i${i+1}`);
+        }
     }
+
+    // TopRow Changes
+    for(let i = 0; i < appRowButtons.length; i++){
+        if(ThemeManager.get(`appRow.i${i+1}`)!==null){
+            appRowButtons[i].src = ThemeManager.get(`appRow.i${i+1}`);
+        }
+    }
+
+}
+
+async function loadPage() {
+    await ThemeManager.init();
+    TVScreen.on();
+    await sleep(440);
+
+    installSequenceTrigger("curseofra", () => {
+        ThemeManager.setTheme("egypt")
+    })
+
+    const shouldPlay = () =>
+        ThemeManager.getThemeName() === "egypt" &&
+        ThemeManager.get("channelMusic.playing") === "yes";
+
+    const unlock = installAudioUnlock({
+        audioEl: channelAudio,
+        shouldPlay,
+    })
+
+    function applyThemeAudio() {
+        channelAudio.src = ThemeManager.get("channelMusic.music") || "";
+        channelAudio.currentTime = 0;
+
+        // If the theme wants music, try now; if blocked it will start on next gesture
+        if (shouldPlay()) {
+            unlock.rearm();
+            unlock.tryPlay();
+        } else {
+            channelAudio.pause();
+            channelAudio.currentTime = 0;
+        }
+    }
+
+    const crtv = new ScreenEffect("#crtvLayer");
+    crtv.add("vignette");
+    crtv.add("scanlines");
+    crtv.add("vcr");
+    crtv.add("snow");
+    startFluidBG({
+        baseColor: [0.0, 6/255, 38/255],
+        fluidColor: [0.0, 247/255, 255/255],
+        targetFPS: 30,
+    })
+
+    themeSwap();
+    applyThemeAudio()
+    rebuildHeadRotationSet();
+    startHeadRotation(10000);
+    ThemeManager.subscribe(() => {
+        rebuildHeadRotationSet();
+        applyGitSortAndRenderFresh();
+        resetHeadHistory();
+        startHeadRotation(10000);
+        themeSwap();
+        applyThemeAudio()
+    })
+
+
+    sortOpts[0].classList.add("selectedSort");
+    initGitRowClicks();
+    await applyGitSortAndRenderFresh();
+
+    channelmenu.style.visibility = "visible";
 }
 
 
@@ -442,21 +369,9 @@ for(let i = 0; i < appRowURLs.length; i++){
     });
 }
 
-function clickButton(){
-    for(let i = 0; i < sortOpts.length; i++) {
-        if(sortOpts[i].classList.contains("selectedSort")){
-            sortOpts[i].classList.remove("selectedSort");
-            break;
-        }
-    }
-    this.classList.add("selectedSort");
-
-    applyGitSortAndRenderFresh()
-}
-
 
 
 // *** Export ***
 
-export {channelmenu, headDisplay, tvbox, backbutton, settingsbutton, icon, fluid, topRowURLs, gitRowURLs, webRowURLs, appRowURLs, topRowButtons, gitRowButtons, webRowButtons, appRowButtons, sortOpts, headImgs, alphabet, alph2egy, TVScreen,
-        startHeadRotation, exitSite, backAnim, undoBackAnim, clickButton, sleep, applyGitSortAndRenderFresh, initGitRowClicks};
+export {channelmenu, backbutton, fluid, sortOpts, TVScreen,
+    exitSite, backAnim, undoBackAnim, clickButton, sleep, loadPage};
