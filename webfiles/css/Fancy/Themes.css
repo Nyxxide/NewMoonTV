@@ -301,12 +301,21 @@ html.theme-egypt #NMtext {
     text-shadow: .2vw .3vh #e8a050, -.2vw -.3vh #a83808;
 }
 
+html.os-windows.theme-egypt #NMtext {
+    font-size: 5vw;
+}
+
 html.theme-egypt #NMlogo {
 
 }
 
 html.theme-egypt #TVtext {
     font-size: 5.5vw;
+    text-shadow: .2vw .3vh #e8a050, -.2vw -.3vh #a83808;
+}
+
+html.os-windows.theme-egypt #TVtext {
+    font-size: 7.5vw;
     text-shadow: .2vw .3vh #e8a050, -.2vw -.3vh #a83808;
 }
 
