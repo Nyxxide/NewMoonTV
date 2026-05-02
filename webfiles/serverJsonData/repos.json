@@ -14,10 +14,10 @@
     "status": "finished"
   },
   {
-    "id": "mcdatatagger",
-    "title": "MCDataTagger",
+    "id": "mcrceparser",
+    "title": "mcrceparser",
     "img": "/images/GHRepo/Base/GHMCTagRepo.webp",
-    "url": "https://github.com/Nyxxide/MCDataTagger",
+    "url": "https://github.com/Nyxxide/MCRCEParser",
     "status": "finished"
   },
   {
