@@ -33,8 +33,8 @@ var scrollBars = document.getElementsByClassName("scrollBar");
 var sortOpts = document.getElementsByClassName("sortOpt");
 
 
-var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://mcrce.nyxxusnovum.tv/"]
-var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://mcrce.nyxxusnovum.tv/", ""]
+var topRowURLs = ["https://github.com/Nyxxide/", "https://yt2.nyxxusnovum.tv/", "https://github.com/Nyxxide/BloonsFarm/releases/", "https://cbtoolbox.tv/"]
+var webRowURLs = ["https://yt2.nyxxusnovum.tv/", "https://cbtoolbox.tv/", ""]
 var appRowURLs = ["https://github.com/Nyxxide/BloonsFarm/releases/", "", ""]
 var topRowButtons = document.getElementsByClassName("topRow");
 var webRowButtons = document.getElementsByClassName("webRow");
